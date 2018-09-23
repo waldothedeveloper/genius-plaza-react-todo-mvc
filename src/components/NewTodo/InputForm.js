@@ -16,6 +16,10 @@ class Form extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
+	componentDidMount() {
+		this.formInput.focus();
+	}
+
 	handleChange(event) {
 		this.setState({ newTodo: event.target.value });
 	}
@@ -78,6 +82,7 @@ class Form extends React.Component {
 						<form onSubmit={this.handleSubmit}>
 							<label className="FormLabel">Enter a new Task</label>
 							<input
+								ref={(input) => (this.formInput = input)}
 								className="FormInput"
 								type="text"
 								value={this.state.newTodo}
