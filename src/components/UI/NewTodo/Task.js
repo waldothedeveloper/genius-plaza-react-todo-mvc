@@ -1,13 +1,18 @@
 import React from 'react';
+import './Task.css';
 
-function Task(props) {
+const Task = (props) => {
 	return (
-		<ul>
+		<ul className="Ul">
 			{props.newTodo.map((t) => {
-				return <li key={t.title}>{t.title}</li>;
+				return (
+					<li className="Li" key={t.title}>
+						{t.title}
+					</li>
+				);
 			})}
 		</ul>
 	);
-}
+};
 
 export default Task;

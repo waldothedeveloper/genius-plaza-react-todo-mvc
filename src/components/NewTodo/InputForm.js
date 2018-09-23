@@ -19,40 +19,49 @@ class Form extends React.Component {
 		this.setState({ newTodo: event.target.value });
 	}
 	handleSubmit(event) {
+		const lastTodo = this.state.newTodo;
+		const todosArray = this.state.todos;
+		let newTodosList = '';
+
+		if (todosArray.length >= 1) {
+			newTodosList = todosArray.find((t) => t.title === lastTodo);
+		}
+
 		try {
-			if (
-				(this.state.newTodo !== '' && this.state.todos.length === 0) ||
-				(this.state.newTodo !== '' &&
-					this.state.todos.length >= 1 &&
-					this.state.newTodo !== this.state.todos[this.state.todos.length - 1].title)
+			if (lastTodo.length > 26) {
+				alert('Please enter a title no greater than 26 characters');
+			} else if (
+				(lastTodo !== '' && todosArray.length === 0) ||
+				(lastTodo !== '' && newTodosList === undefined)
 			) {
 				this.setState({
 					todos: [
-						...this.state.todos,
+						...todosArray,
 						{
-							title: this.state.newTodo,
+							title: lastTodo,
 							done: false
 						}
 					]
 				});
-			} else if (
-				this.state.newTodo !== '' &&
-				this.state.todos.length >= 1 &&
-				this.state.newTodo === this.state.todos[this.state.todos.length - 1].title
-			) {
+			} else if (lastTodo !== '' && todosArray.length >= 1 && lastTodo === newTodosList.title) {
 				alert('you cannot submit the same todo title, please enter a different title :)');
 			} else {
 				alert('you cannot submit an empty todo');
 			}
 		} catch (error) {
 			this.setState({ hasError: true });
+			console.log(error);
 		}
 		event.preventDefault();
 	}
 
 	render() {
 		if (this.state.hasError) {
-			return <h1>Something went wrong :(</h1>;
+			return (
+				<div>
+					<h1>Something went wrong :(</h1>
+				</div>
+			);
 		} else
 			return (
 				<React.StrictMode>
