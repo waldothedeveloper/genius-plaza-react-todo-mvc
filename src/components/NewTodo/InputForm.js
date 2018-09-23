@@ -1,6 +1,7 @@
 import React from 'react';
 import Task from '../UI/NewTodo/Task';
 import './InputForm.css';
+import { result } from '../../utils/Examples';
 
 class Form extends React.Component {
 	constructor(props) {
@@ -31,8 +32,8 @@ class Form extends React.Component {
 		// And go to the section: How About Event Handlers?
 		try {
 			// Titles longer than 50 characters not allowed
-			if (lastTodo.length > 50) {
-				alert('Please enter a title no greater than 50 characters');
+			if (lastTodo.length > 60) {
+				alert('Please enter a title no greater than 60 characters');
 			} else if (
 				(lastTodo !== '' && todosArray.length === 0) ||
 				(lastTodo !== '' && newTodosList === undefined)
@@ -40,6 +41,7 @@ class Form extends React.Component {
 				// empty titles not allowed
 				// if newTodosList return undefined from line 27 above means that the title was not previously entered, therefore we can add it as a new todo task
 				this.setState({
+					newTodo: '',
 					todos: [
 						...todosArray,
 						{
@@ -79,7 +81,7 @@ class Form extends React.Component {
 								className="FormInput"
 								type="text"
 								value={this.state.newTodo}
-								placeholder="ex: go to the gym"
+								placeholder={result}
 								onChange={this.handleChange}
 							/>
 							<input className="FormButton" type="submit" value="Submit" />
