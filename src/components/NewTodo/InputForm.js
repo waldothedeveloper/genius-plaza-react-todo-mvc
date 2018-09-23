@@ -27,17 +27,18 @@ class Form extends React.Component {
 			newTodosList = todosArray.find((t) => t.title === lastTodo);
 		}
 
+		// The event handlers don't happen during rendering in React. But I would like to catch any error on the form submitted, the docs recommend to use the regular javascript try/catch. For more info please read: https://reactjs.org/docs/error-boundaries.html
+		// And go to the section: How About Event Handlers?
 		try {
-			//Titles longer than 60 char not allowed
-			if (lastTodo.length > 60) {
-				alert('Please enter a title no greater than 60 characters');
+			// Titles longer than 50 characters not allowed
+			if (lastTodo.length > 50) {
+				alert('Please enter a title no greater than 50 characters');
 			} else if (
 				(lastTodo !== '' && todosArray.length === 0) ||
 				(lastTodo !== '' && newTodosList === undefined)
 			) {
 				// empty titles not allowed
-				// same title not allowed
-				// the find function on line 27 return undefined if the title is not found,therefore is a brand new title and we can add it to our todo list
+				// if newTodosList return undefined from line 27 above means that the title was not previously entered, therefore we can add it as a new todo task
 				this.setState({
 					todos: [
 						...todosArray,
@@ -48,7 +49,8 @@ class Form extends React.Component {
 					]
 				});
 			} else if (lastTodo !== '' && todosArray.length >= 1 && lastTodo === newTodosList.title) {
-				alert('you cannot submit the same todo title, please enter a different title :)');
+				// same todo title not allowed
+				alert('you cannot submit the same todo title, please enter a different title');
 			} else {
 				alert('you cannot submit an empty todo');
 			}
@@ -60,10 +62,11 @@ class Form extends React.Component {
 	}
 
 	render() {
+		// In case there's an error in the Form I putting a fallback UI
 		if (this.state.hasError) {
 			return (
-				<div>
-					<h1>Something went wrong :(</h1>
+				<div className=".Form">
+					<h1>Something went wrong</h1>
 				</div>
 			);
 		} else
