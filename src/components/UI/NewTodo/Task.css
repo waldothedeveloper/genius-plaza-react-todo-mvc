@@ -1,5 +1,5 @@
 .Ul {
-	max-width: 400px;
+	max-width: 350px;
 	display: flex;
 	flex-direction: column;
 	padding: 0;
@@ -9,15 +9,14 @@
 	-webkit-margin-after: 1em;
 	-webkit-margin-start: 0px;
 	-webkit-margin-end: 0px;
-	-webkit-padding-start: 40px;
 }
 .Li {
 	position: relative;
 	display: block;
-	flex-wrap: wrap;
 	padding: .75rem 1.25rem;
 	margin-bottom: -1px;
 	background-color: #fff;
+	color: #323232;
 	border: 1px solid rgba(0, 0, 0, .125);
 	text-align: -webkit-match-parent;
 	list-style-type: disc;

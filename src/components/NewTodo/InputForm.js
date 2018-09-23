@@ -28,12 +28,16 @@ class Form extends React.Component {
 		}
 
 		try {
-			if (lastTodo.length > 26) {
-				alert('Please enter a title no greater than 26 characters');
+			//Titles longer than 60 char not allowed
+			if (lastTodo.length > 60) {
+				alert('Please enter a title no greater than 60 characters');
 			} else if (
 				(lastTodo !== '' && todosArray.length === 0) ||
 				(lastTodo !== '' && newTodosList === undefined)
 			) {
+				// empty titles not allowed
+				// same title not allowed
+				// the find function on line 27 return undefined if the title is not found,therefore is a brand new title and we can add it to our todo list
 				this.setState({
 					todos: [
 						...todosArray,
@@ -67,17 +71,18 @@ class Form extends React.Component {
 				<React.StrictMode>
 					<div className="Form">
 						<form onSubmit={this.handleSubmit}>
+							<label className="FormLabel">Enter a new Task</label>
 							<input
 								className="FormInput"
 								type="text"
 								value={this.state.newTodo}
-								placeholder="enter task"
+								placeholder="ex: go to the gym"
 								onChange={this.handleChange}
 							/>
 							<input className="FormButton" type="submit" value="Submit" />
 						</form>
 					</div>
-					<div>
+					<div className="TodoContainer">
 						<Task newTodo={this.state.todos} />
 					</div>
 				</React.StrictMode>
