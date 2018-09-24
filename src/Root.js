@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import './Root.css';
 import InputForm from './components/NewTodo/InputForm';
+import AppTitle from './components/UI/Title/AppTitle';
 
 class Root extends Component {
 	render() {
 		return (
-			<div>
-				<div className="AppTitleContainer">
-					<h1 className="AppTitle">Just do it</h1>
-				</div>
+			<React.Fragment>
+				<AppTitle />
 				<InputForm />
-			</div>
+			</React.Fragment>
 		);
 	}
 }
