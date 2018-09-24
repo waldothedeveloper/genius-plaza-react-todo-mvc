@@ -3,17 +3,23 @@
 > Official description of the framework (from its website)
 
 ## Resources
-- [Website](https://react-genius-plaza-react-to-do-mvc.netlify.com/)
+- [Website](https://react-todo-mvc.netlify.com/)
 
 ### Quick Overview
-A live demo of the project [here](https://react-genius-plaza-react-to-do-mvc.netlify.com/)
-It was deployed on Netlify. For more info visit [netlify.com](https://www.netlify.com/features/?gclid=Cj0KCQjwlqLdBRCKARIsAPxTGaVkyVfbEzVdelO_tuY-VOnCrkvU1Rg5bkMQ8KsJMDW6Sx6SXz8LRSsaAm1uEALw_wcB)
+A live demo of the project [here](https://react-todo-mvc.netlify.com/)
+It was deployed on Netlify. 
+For more info visit [netlify.com](https://www.netlify.com/features/?gclid=Cj0KCQjwlqLdBRCKARIsAPxTGaVkyVfbEzVdelO_tuY-VOnCrkvU1Rg5bkMQ8KsJMDW6Sx6SXz8LRSsaAm1uEALw_wcB)
 
 
 The Structure of the Project looks like this: 
+
+
 ![Structure of the project](./public/Project-Structure.png)
+
+
 The folder structure and naming convention principles followed in this web app are born from this great article:
 - [Structuring Projects and Naming Conventions](https://hackernoon.com/structuring-projects-and-naming-components-in-react-1261b6e18d76)
+
 This can be a very opinionated subject, and I take in consideration that there is no absolute true in terms of structuring projects, but at least this spec article seems to give very good advice that made me to make slightly changes to the original requested folder structure for this project.
 
 
