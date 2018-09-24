@@ -14,10 +14,20 @@ class Form extends React.Component {
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.receiveToggleCheckBox = this.receiveToggleCheckBox.bind(this);
 	}
 
 	componentDidMount() {
 		this.formInput.focus();
+	}
+
+	receiveToggleCheckBox(index, checkbox) {
+		const todos = [ ...this.state.todos ]; //copy the array
+		todos[index] = { ...todos[index] }; //copy the todo
+		todos[index].done = checkbox; //update done property on copied todo
+		this.setState({
+			todos
+		});
 	}
 
 	handleChange(event) {
@@ -32,7 +42,7 @@ class Form extends React.Component {
 			newTodosList = todosArray.find((t) => t.title === lastTodo);
 		}
 
-		// The event handlers don't happen during rendering in React. But I would like to catch any error on the form submitted, the docs recommend to use the regular javascript try/catch. For more info please read: https://reactjs.org/docs/error-boundaries.html
+		// To catch any error on the form submitted, the React docs recommend to use the regular javascript try/catch. For more info please read: https://reactjs.org/docs/error-boundaries.html
 		// And go to the section: How About Event Handlers?
 		try {
 			// Titles longer than 50 characters not allowed
@@ -93,7 +103,7 @@ class Form extends React.Component {
 						</form>
 					</div>
 					<div className="TodoContainer">
-						<Task newTodo={this.state.todos} />
+						<Task checkTodo={this.receiveToggleCheckBox} newTodo={this.state.todos} />
 					</div>
 				</React.StrictMode>
 			);
