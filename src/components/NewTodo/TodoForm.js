@@ -1,6 +1,7 @@
 import React from 'react';
 import './TodoForm.css';
 import { randomExample } from '../../utils/Examples';
+import PropTypes from 'prop-types';
 
 class TodoForm extends React.Component {
 	constructor(props) {
@@ -33,12 +34,15 @@ class TodoForm extends React.Component {
 						<input className="FormButton" type="submit" value="Submit" />
 					</form>
 				</div>
-				<div className="TodoContainer">
-					{/* <Task removeTask={this.deleteTodo} checkTodo={this.receiveToggleCheckBox} newTodo={this.state.todos} /> */}
-				</div>
 			</React.Fragment>
 		);
 	}
 }
 
+TodoForm.propTypes = {
+	handleSubmit: PropTypes.func.isRequired,
+	newTodo: PropTypes.string.isRequired,
+	exTodo: PropTypes.array.isRequired,
+	handleChange: PropTypes.func.isRequired
+};
 export default TodoForm;

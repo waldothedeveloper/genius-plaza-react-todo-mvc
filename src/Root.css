@@ -1,1 +1,6 @@
-
+.Form {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	margin-bottom: 1rem;
+}

@@ -83,6 +83,7 @@ class Root extends Component {
 				// same todo title not allowed
 				alert('you cannot submit the same todo title, please enter a different title');
 			} else {
+				// empty todo title not allowed
 				alert('you cannot submit an empty todo');
 			}
 		} catch (error) {
