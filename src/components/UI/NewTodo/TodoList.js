@@ -7,7 +7,7 @@ class TodoList extends React.Component {
 	}
 
 	sendToggleCheckbox(index, event) {
-		this.props.toggleTodoDone(index, event.target.checked);
+		this.props.toggleTodoDone(index, event);
 	}
 
 	render() {
@@ -16,12 +16,12 @@ class TodoList extends React.Component {
 				<ul className="Ul">
 					{this.props.todos.map((t, index) => {
 						return (
-							<div key={index} className="Form-Group-Prepend">
+							<div key={t.title} className="Form-Group-Prepend">
 								<div className={t.done ? 'Form-Group-Text-Disabled' : 'Form-Group-Text'}>
 									<input
 										type="checkbox"
 										aria-label="Checkbox to mark the task as done"
-										onChange={(e) => this.sendToggleCheckbox(index, e)}
+										onChange={this.sendToggleCheckbox.bind(this, index)}
 									/>
 								</div>
 								<li className={t.done ? 'Disabled' : 'Li'} key={t.title}>

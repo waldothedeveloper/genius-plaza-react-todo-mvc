@@ -7,7 +7,8 @@
 
 ### Quick Overview
 A live demo of the project [here](https://react-genius-plaza-react-to-do-mvc.netlify.com/)
-It was deployed on Netlify. For more info visit [netlify.com](https://www.netlify.com/features/?gclid=Cj0KCQjwlqLdBRCKARIsAPxTGaVkyVfbEzVdelO_tuY-VOnCrkvU1Rg5bkMQ8KsJMDW6Sx6SXz8LRSsaAm1uEALw_wcB)
+It was deployed on Netlify.
+For more info visit [netlify.com](https://www.netlify.com/features/?gclid=Cj0KCQjwlqLdBRCKARIsAPxTGaVkyVfbEzVdelO_tuY-VOnCrkvU1Rg5bkMQ8KsJMDW6Sx6SXz8LRSsaAm1uEALw_wcB)
 
 
 The Structure of the Project looks like this: 

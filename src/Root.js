@@ -37,9 +37,9 @@ class Root extends Component {
 		});
 	}
 
-	receiveToggleCheckBox(index, checked) {
+	receiveToggleCheckBox(index, event) {
 		const todos = [ ...this.state.todos ]; //copy the array
-		todos[index] = { ...todos[index], done: checked }; //update done property
+		todos[index] = { ...todos[index], done: event.target.checked }; //update done property
 		this.setState({
 			todos
 		});
@@ -105,8 +105,8 @@ class Root extends Component {
 		} else
 			return (
 				<React.Fragment>
+					s
 					<AppTitle />
-
 					<TodoForm
 						handleSubmit={this.handleSubmit}
 						newTodo={this.state.newTodo}

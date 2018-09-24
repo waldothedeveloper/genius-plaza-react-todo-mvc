@@ -4,6 +4,7 @@ import './Count.css';
 
 const Count = (props) => {
 	const items = props.number.length;
+
 	return <Pluralize className="Count" singular="item" plural="items" count={items} />;
 };
 
