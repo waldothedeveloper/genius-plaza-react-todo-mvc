@@ -1,7 +1,5 @@
 # TodoMVC (REACT)
 
-> Official description of the framework (from its website)
-
 ## Resources
 - [Website](https://react-todo-mvc.netlify.com/)
 
