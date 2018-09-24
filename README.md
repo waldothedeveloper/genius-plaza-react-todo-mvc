@@ -28,18 +28,18 @@ The Project was created from the create-react-app boilerplate. [link](https://gi
 All data lives in the state of the `<Root />` Component and it's passed down as props to children components.
 
 
-####Empty to-dos title cannot be added.
+#### Empty to-dos title cannot be added.
 In the `<Root />` Component lines 57-59 implement a `find() func` function that will search for a repeated title, if not found the `find() func` function returns undefined, this way we make sure we are not entering a repeated title.
 
-####Same to-dos title cannot be added.
+#### Same to-dos title cannot be added.
 
 To display the number of items the React-Pluralize library was used. For more info visit [react-pluralize](https://www.npmjs.com/package/react-pluralize)
 
-####Titles greater than 60 characters not allowed
+#### Titles greater than 60 characters not allowed
 The app could be developed into tasks title and description or details, but for time reasons I am only allowing titles no greater than 60 characters.
 
 
-####Try/Catch for Form errors
+#### Try/Catch for Form errors
 To catch errors on the `TodoForm.js` file, the React docs recommend to use the regular javascript try/catch. For more info please read: https://reactjs.org/docs/error-boundaries.html
 And go to the section: How About Event Handlers?
 
@@ -48,10 +48,10 @@ Every time the component re-render I show a random task example, this comes from
 The `utils` folder contains an `Examples.js` helper function that uses Math.random along with Math.floor to create a random number that will pull up 'randomnly' a new todo example.
 
 
-####AutoFocus
+#### AutoFocus
 By using a `ref` on line 27 of the `TodoForm.js` Component and the life-cycle method `ComponentDidMount` the user is auto-focused to enter a new task every time they submit the form.
 
-####CSS
+#### CSS
 With much more time, a better UI/UX might be possible to implement, adding more features, and pleasant animations, transitions, etc for a better user experience. But I wanted to give some 'a little more than basic styling' to the app following some Boostrap 4 CSS principles. 
 
 
