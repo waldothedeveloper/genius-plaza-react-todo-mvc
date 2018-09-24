@@ -2,9 +2,11 @@ import React from 'react';
 import './Task.css';
 
 class Task extends React.Component {
+	sendTaskToRemove(index) {
+		this.props.removeTask(index);
+	}
+
 	sendToggleCheckbox(index, event) {
-		// console.log('event: ', event);
-		// console.log('index: ', index);
 		this.props.checkTodo(index, event.target.checked);
 	}
 
@@ -22,7 +24,10 @@ class Task extends React.Component {
 								/>
 							</div>
 							<li className={t.done ? 'Disabled' : 'Li'} key={t.title}>
-								{t.title}
+								{t.title} &nbsp;
+								<span onClick={() => this.sendTaskToRemove(index)} className="Delete-Task">
+									X
+								</span>
 							</li>
 						</div>
 					);
