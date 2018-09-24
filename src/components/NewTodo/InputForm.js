@@ -1,7 +1,7 @@
 import React from 'react';
 import Task from '../UI/NewTodo/Task';
 import './InputForm.css';
-import { result } from '../../utils/Examples';
+import { randomExample } from '../../utils/Examples';
 
 class Form extends React.Component {
 	constructor(props) {
@@ -9,22 +9,41 @@ class Form extends React.Component {
 		this.state = {
 			newTodo: '',
 			todos: [],
-			hasError: null
+			hasError: null,
+			examplesOfTodos: [
+				'e.g: go to gym',
+				'e.g: go to the beach',
+				'e.g: make spaghetti',
+				'e.g: hug someone you love',
+				'e.g: learn anything new',
+				'e.g: eat healthy',
+				'e.g: dont worry be happy'
+			]
 		};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.receiveToggleCheckBox = this.receiveToggleCheckBox.bind(this);
+		this.deleteTodo = this.deleteTodo.bind(this);
 	}
 
+	//life cycle method here :)
 	componentDidMount() {
 		this.formInput.focus();
 	}
 
-	receiveToggleCheckBox(index, checkbox) {
+	deleteTodo(index) {
+		const todos = [ ...this.state.todos ];
+		todos.splice(index, 1);
+		this.setState({
+			todos
+		});
+		console.log('todos before splice: ', todos);
+	}
+
+	receiveToggleCheckBox(index, checked) {
 		const todos = [ ...this.state.todos ]; //copy the array
-		todos[index] = { ...todos[index] }; //copy the todo
-		todos[index].done = checkbox; //update done property on copied todo
+		todos[index] = { ...todos[index], done: checked }; //update done property
 		this.setState({
 			todos
 		});
@@ -34,7 +53,7 @@ class Form extends React.Component {
 		this.setState({ newTodo: event.target.value });
 	}
 	handleSubmit(event) {
-		const lastTodo = this.state.newTodo;
+		const lastTodo = this.state.newTodo.trim();
 		const todosArray = this.state.todos;
 		let newTodosList = '';
 
@@ -42,7 +61,7 @@ class Form extends React.Component {
 			newTodosList = todosArray.find((t) => t.title === lastTodo);
 		}
 
-		// To catch any error on the form submitted, the React docs recommend to use the regular javascript try/catch. For more info please read: https://reactjs.org/docs/error-boundaries.html
+		// To catch errors on the form submitted, the React docs recommend to use the regular javascript try/catch. For more info please read: https://reactjs.org/docs/error-boundaries.html
 		// And go to the section: How About Event Handlers?
 		try {
 			// Titles longer than 50 characters not allowed
@@ -78,7 +97,8 @@ class Form extends React.Component {
 	}
 
 	render() {
-		// In case there's an error in the Form I putting a fallback UI
+		const exTodo = this.state.examplesOfTodos;
+		// Using if else in case there's an error in the Form I putting a fallback UI
 		if (this.state.hasError) {
 			return (
 				<div className=".Form">
@@ -96,14 +116,18 @@ class Form extends React.Component {
 								className="FormInput"
 								type="text"
 								value={this.state.newTodo}
-								placeholder={result}
+								placeholder={exTodo[randomExample(exTodo.length)]}
 								onChange={this.handleChange}
 							/>
 							<input className="FormButton" type="submit" value="Submit" />
 						</form>
 					</div>
 					<div className="TodoContainer">
-						<Task checkTodo={this.receiveToggleCheckBox} newTodo={this.state.todos} />
+						<Task
+							removeTask={this.deleteTodo}
+							checkTodo={this.receiveToggleCheckBox}
+							newTodo={this.state.todos}
+						/>
 					</div>
 				</React.StrictMode>
 			);
