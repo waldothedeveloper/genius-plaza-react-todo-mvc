@@ -1,5 +1,11 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+	font-family: Roboto;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #fafbf6;
+	text-align: left;
+	box-sizing: border-box;
 }
