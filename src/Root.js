@@ -3,6 +3,7 @@ import './Root.css';
 import TodoForm from './components/NewTodo/TodoForm';
 import AppTitle from './components/UI/Title/AppTitle';
 import TodoList from './components/UI/NewTodo/TodoList';
+import Count from './components/UI/Todos/Count';
 
 class Root extends Component {
 	constructor(props) {
@@ -60,7 +61,7 @@ class Root extends Component {
 		// To catch errors on the form submitted, the React docs recommend to use the regular javascript try/catch. For more info please read: https://reactjs.org/docs/error-boundaries.html
 		// And go to the section: How About Event Handlers?
 		try {
-			// Titles longer than 50 characters not allowed
+			// Titles longer than 60 characters not allowed
 			if (lastTodo.length > 60) {
 				alert('Please enter a title no greater than 60 characters');
 			} else if (
@@ -105,12 +106,14 @@ class Root extends Component {
 			return (
 				<React.Fragment>
 					<AppTitle />
+
 					<TodoForm
 						handleSubmit={this.handleSubmit}
 						newTodo={this.state.newTodo}
 						handleChange={this.handleChange}
 						exTodo={this.state.examplesOfTodos}
 					/>
+					<Count number={this.state.todos} />
 					<TodoList
 						todos={this.state.todos}
 						toggleTodoDone={this.receiveToggleCheckBox}
