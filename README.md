@@ -49,7 +49,8 @@ By using a `ref` on line 27 of the `TodoForm.js` Component and the life-cycle me
 #### CSS
 With much more time, a better UI/UX might be possible to implement, adding more features, and pleasant animations, transitions, etc for a better user experience. But I wanted to give some 'a little more than basic styling' to the app following some Boostrap 4 CSS principles. 
 
-
+### Git workflow
+The Git workflow used was inspired by the suggested article from the @devteam at Genius-Plaza. You can visit the master, develop, or any of the Feature branches to see every commit :) 
 
 ## Credit
 Created by [Waldo Lavaut](waldothedeveloper@gmail.com)
