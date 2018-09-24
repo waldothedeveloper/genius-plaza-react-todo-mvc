@@ -1,19 +1,19 @@
 import React from 'react';
-import './Task.css';
+import './TodoList.css';
 
 class Task extends React.Component {
 	sendTaskToRemove(index) {
-		this.props.removeTask(index);
+		this.props.removeTodo(index);
 	}
 
 	sendToggleCheckbox(index, event) {
-		this.props.checkTodo(index, event.target.checked);
+		this.props.toggleTodoDone(index, event.target.checked);
 	}
 
 	render() {
 		return (
 			<ul className="Ul">
-				{this.props.newTodo.map((t, index) => {
+				{this.props.todos.map((t, index) => {
 					return (
 						<div key={index} className="Form-Group-Prepend">
 							<div className={t.done ? 'Form-Group-Text-Disabled' : 'Form-Group-Text'}>
