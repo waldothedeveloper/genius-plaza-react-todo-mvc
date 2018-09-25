@@ -4,6 +4,7 @@ import TodoForm from './components/NewTodo/TodoForm';
 import AppTitle from './components/UI/Title/AppTitle';
 import TodoList from './components/UI/NewTodo/TodoList';
 import Count from './components/UI/Todos/Count';
+import shortid from 'shortid';
 
 class Root extends Component {
 	constructor(props) {
@@ -29,9 +30,9 @@ class Root extends Component {
 		this.deleteTodo = this.deleteTodo.bind(this);
 	}
 
-	deleteTodo(index) {
+	deleteTodo(id) {
 		const todos = [ ...this.state.todos ];
-		todos.splice(index, 1);
+		todos.splice(id, 1);
 		this.setState({
 			todos
 		});
@@ -39,7 +40,7 @@ class Root extends Component {
 
 	receiveToggleCheckBox(index, event) {
 		const todos = [ ...this.state.todos ]; //copy the array
-		todos[index] = { ...todos[index], done: event.target.checked }; //update done property
+		todos[index] = { ...todos[index], done: event.target.checked };
 		this.setState({
 			todos
 		});
@@ -76,7 +77,8 @@ class Root extends Component {
 						...todosArray,
 						{
 							title: lastTodo,
-							done: false
+							done: false,
+							id: shortid.generate()
 						}
 					]
 				});
@@ -105,7 +107,6 @@ class Root extends Component {
 		} else
 			return (
 				<React.Fragment>
-					s
 					<AppTitle />
 					<TodoForm
 						handleSubmit={this.handleSubmit}

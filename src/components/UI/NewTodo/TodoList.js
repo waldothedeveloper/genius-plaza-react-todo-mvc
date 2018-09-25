@@ -2,13 +2,18 @@ import React from 'react';
 import './TodoList.css';
 import PropTypes from 'prop-types';
 class TodoList extends React.Component {
-	sendTaskToRemove(index) {
-		this.props.removeTodo(index);
+	constructor(props) {
+		super(props);
+		this.sendToggleCheckbox = this.sendToggleCheckbox.bind(this);
 	}
 
-	sendToggleCheckbox(index, event) {
-		this.props.toggleTodoDone(index, event);
+	sendTaskToRemove(id) {
+		this.props.removeTodo(id);
 	}
+
+	sendToggleCheckbox = (index) => (event) => {
+		return this.props.toggleTodoDone(index, event);
+	};
 
 	render() {
 		return (
@@ -16,17 +21,17 @@ class TodoList extends React.Component {
 				<ul className="Ul">
 					{this.props.todos.map((t, index) => {
 						return (
-							<div key={t.title} className="Form-Group-Prepend">
+							<div key={t.id} className="Form-Group-Prepend">
 								<div className={t.done ? 'Form-Group-Text-Disabled' : 'Form-Group-Text'}>
 									<input
 										type="checkbox"
 										aria-label="Checkbox to mark the task as done"
-										onChange={this.sendToggleCheckbox.bind(this, index)}
+										onChange={this.sendToggleCheckbox(index)}
 									/>
 								</div>
-								<li className={t.done ? 'Disabled' : 'Li'} key={t.title}>
+								<li className={t.done ? 'Disabled' : 'Li'} key={t.id}>
 									{t.title} &nbsp;
-									<span onClick={() => this.sendTaskToRemove(index)} className="Delete-Task">
+									<span onClick={() => this.sendTaskToRemove(t.id)} className="Delete-Task">
 										X
 									</span>
 								</li>
