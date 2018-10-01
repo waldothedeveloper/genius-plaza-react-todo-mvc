@@ -4,14 +4,8 @@
 - [Website](https://react-todo-mvc.netlify.com/)
 
 ### Quick Overview
-<<<<<<< HEAD
-A live demo of the project [here](https://react-genius-plaza-react-to-do-mvc.netlify.com/)
-It was deployed on Netlify.
-For more info visit [netlify.com](https://www.netlify.com/features/?gclid=Cj0KCQjwlqLdBRCKARIsAPxTGaVkyVfbEzVdelO_tuY-VOnCrkvU1Rg5bkMQ8KsJMDW6Sx6SXz8LRSsaAm1uEALw_wcB)
 
-=======
 A live demo of the project [here](https://react-todo-mvc.netlify.com/)
->>>>>>> 8d9e6d8f9c722b5e505463b42fd5ca6a048e26aa
 
 The Structure of the Project looks like this: 
 
